@@ -1,14 +1,14 @@
 <?php
 
-namespace Illuminate\Support;
+namespace WPWhales\Support;
 
 use ArrayIterator;
 use Closure;
 use DateTimeInterface;
 use Generator;
-use Illuminate\Contracts\Support\CanBeEscapedWhenCastToString;
-use Illuminate\Support\Traits\EnumeratesValues;
-use Illuminate\Support\Traits\Macroable;
+use WPWhales\Contracts\Support\CanBeEscapedWhenCastToString;
+use WPWhales\Support\Traits\EnumeratesValues;
+use WPWhales\Support\Traits\Macroable;
 use InvalidArgumentException;
 use IteratorAggregate;
 use stdClass;
@@ -19,12 +19,12 @@ use Traversable;
  *
  * @template-covariant TValue
  *
- * @implements \Illuminate\Support\Enumerable<TKey, TValue>
+ * @implements \WPWhales\Support\Enumerable<TKey, TValue>
  */
 class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
 {
     /**
-     * @use \Illuminate\Support\Traits\EnumeratesValues<TKey, TValue>
+     * @use \WPWhales\Support\Traits\EnumeratesValues<TKey, TValue>
      */
     use EnumeratesValues, Macroable;
 
@@ -38,7 +38,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Create a new lazy collection instance.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>|(Closure(): \Generator<TKey, TValue, mixed, void>)|self<TKey, TValue>|array<TKey, TValue>|null  $source
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>|(Closure(): \Generator<TKey, TValue, mixed, void>)|self<TKey, TValue>|array<TKey, TValue>|null  $source
      * @return void
      */
     public function __construct($source = null)
@@ -62,7 +62,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
      * @template TMakeKey of array-key
      * @template TMakeValue
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TMakeKey, TMakeValue>|iterable<TMakeKey, TMakeValue>|(Closure(): \Generator<TMakeKey, TMakeValue, mixed, void>)|self<TMakeKey, TMakeValue>|array<TMakeKey, TMakeValue>|null  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TMakeKey, TMakeValue>|iterable<TMakeKey, TMakeValue>|(Closure(): \Generator<TMakeKey, TMakeValue, mixed, void>)|self<TMakeKey, TMakeValue>|array<TMakeKey, TMakeValue>|null  $items
      * @return static<TMakeKey, TMakeValue>
      */
     public static function make($items = [])
@@ -282,7 +282,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
      * @template TCrossJoinKey
      * @template TCrossJoinValue
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TCrossJoinKey, TCrossJoinValue>|iterable<TCrossJoinKey, TCrossJoinValue>  ...$arrays
+     * @param  \WPWhales\Contracts\Support\Arrayable<TCrossJoinKey, TCrossJoinValue>|iterable<TCrossJoinKey, TCrossJoinValue>  ...$arrays
      * @return static<int, array<int, TValue|TCrossJoinValue>>
      */
     public function crossJoin(...$arrays)
@@ -322,7 +322,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Get the items that are not present in the given items.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<array-key, TValue>|iterable<array-key, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<array-key, TValue>|iterable<array-key, TValue>  $items
      * @return static
      */
     public function diff($items)
@@ -333,7 +333,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Get the items that are not present in the given items, using the callback.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<array-key, TValue>|iterable<array-key, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<array-key, TValue>|iterable<array-key, TValue>  $items
      * @param  callable(TValue, TValue): int  $callback
      * @return static
      */
@@ -345,7 +345,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Get the items whose keys and values are not present in the given items.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
      * @return static
      */
     public function diffAssoc($items)
@@ -356,7 +356,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Get the items whose keys and values are not present in the given items, using the callback.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
      * @param  callable(TKey, TKey): int  $callback
      * @return static
      */
@@ -368,7 +368,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Get the items whose keys are not present in the given items.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
      * @return static
      */
     public function diffKeys($items)
@@ -379,7 +379,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Get the items whose keys are not present in the given items, using the callback.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
      * @param  callable(TKey, TKey): int  $callback
      * @return static
      */
@@ -414,7 +414,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Get all items except for those with the specified keys.
      *
-     * @param  \Illuminate\Support\Enumerable<array-key, TKey>|array<array-key, TKey>  $keys
+     * @param  \WPWhales\Support\Enumerable<array-key, TKey>|array<array-key, TKey>  $keys
      * @return static
      */
     public function except($keys)
@@ -623,7 +623,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Intersect the collection with the given items.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
      * @return static
      */
     public function intersect($items)
@@ -634,7 +634,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Intersect the collection with the given items, using the callback.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<array-key, TValue>|iterable<array-key, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<array-key, TValue>|iterable<array-key, TValue>  $items
      * @param  callable(TValue, TValue): int  $callback
      * @return static
      */
@@ -646,7 +646,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Intersect the collection with the given items with additional index check.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
      * @return static
      */
     public function intersectAssoc($items)
@@ -657,7 +657,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Intersect the collection with the given items with additional index check, using the callback.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<array-key, TValue>|iterable<array-key, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<array-key, TValue>|iterable<array-key, TValue>  $items
      * @param  callable(TValue, TValue): int  $callback
      * @return static
      */
@@ -669,7 +669,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Intersect the collection with the given items by key.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
      * @return static
      */
     public function intersectByKeys($items)
@@ -831,7 +831,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Merge the collection with the given items.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
      * @return static
      */
     public function merge($items)
@@ -844,7 +844,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
      *
      * @template TMergeRecursiveValue
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TMergeRecursiveValue>|iterable<TKey, TMergeRecursiveValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TMergeRecursiveValue>|iterable<TKey, TMergeRecursiveValue>  $items
      * @return static<TKey, TValue|TMergeRecursiveValue>
      */
     public function mergeRecursive($items)
@@ -888,7 +888,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Union the collection with the given items.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
      * @return static
      */
     public function union($items)
@@ -921,7 +921,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Get the items with the specified keys.
      *
-     * @param  \Illuminate\Support\Enumerable<array-key, TKey>|array<array-key, TKey>|string  $keys
+     * @param  \WPWhales\Support\Enumerable<array-key, TKey>|array<array-key, TKey>|string  $keys
      * @return static
      */
     public function only($keys)
@@ -985,7 +985,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Replace the collection items with the given items.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
      * @return static
      */
     public function replace($items)
@@ -1012,7 +1012,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Recursively replace the collection items with the given items.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>  $items
      * @return static
      */
     public function replaceRecursive($items)
@@ -1203,8 +1203,8 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
      * @param  mixed  $value
      * @return TValue
      *
-     * @throws \Illuminate\Support\ItemNotFoundException
-     * @throws \Illuminate\Support\MultipleItemsFoundException
+     * @throws \WPWhales\Support\ItemNotFoundException
+     * @throws \WPWhales\Support\MultipleItemsFoundException
      */
     public function sole($key = null, $operator = null, $value = null)
     {
@@ -1228,7 +1228,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
      * @param  mixed  $value
      * @return TValue
      *
-     * @throws \Illuminate\Support\ItemNotFoundException
+     * @throws \WPWhales\Support\ItemNotFoundException
      */
     public function firstOrFail($key = null, $operator = null, $value = null)
     {
@@ -1585,7 +1585,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
      *
      * @template TZipValue
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<array-key, TZipValue>|iterable<array-key, TZipValue>  ...$items
+     * @param  \WPWhales\Contracts\Support\Arrayable<array-key, TZipValue>|iterable<array-key, TZipValue>  ...$items
      * @return static<int, static<int, TValue|TZipValue>>
      */
     public function zip($items)

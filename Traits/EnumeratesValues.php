@@ -1,16 +1,16 @@
 <?php
 
-namespace Illuminate\Support\Traits;
+namespace WPWhales\Support\Traits;
 
 use CachingIterator;
 use Closure;
 use Exception;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Jsonable;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Enumerable;
-use Illuminate\Support\HigherOrderCollectionProxy;
+use WPWhales\Contracts\Support\Arrayable;
+use WPWhales\Contracts\Support\Jsonable;
+use WPWhales\Support\Arr;
+use WPWhales\Support\Collection;
+use WPWhales\Support\Enumerable;
+use WPWhales\Support\HigherOrderCollectionProxy;
 use JsonSerializable;
 use Traversable;
 use UnexpectedValueException;
@@ -103,7 +103,7 @@ trait EnumeratesValues
      * @template TMakeKey of array-key
      * @template TMakeValue
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TMakeKey, TMakeValue>|iterable<TMakeKey, TMakeValue>|null  $items
+     * @param  \WPWhales\Contracts\Support\Arrayable<TMakeKey, TMakeValue>|iterable<TMakeKey, TMakeValue>|null  $items
      * @return static<TMakeKey, TMakeValue>
      */
     public static function make($items = [])
@@ -369,7 +369,7 @@ trait EnumeratesValues
      * @template TFlatMapKey of array-key
      * @template TFlatMapValue
      *
-     * @param  callable(TValue, TKey): (\Illuminate\Support\Collection<TFlatMapKey, TFlatMapValue>|array<TFlatMapKey, TFlatMapValue>)  $callback
+     * @param  callable(TValue, TKey): (\WPWhales\Support\Collection<TFlatMapKey, TFlatMapValue>|array<TFlatMapKey, TFlatMapValue>)  $callback
      * @return static<TFlatMapKey, TFlatMapValue>
      */
     public function flatMap(callable $callback)
@@ -605,7 +605,7 @@ trait EnumeratesValues
      * Filter items by the given key value pair.
      *
      * @param  string  $key
-     * @param  \Illuminate\Contracts\Support\Arrayable|iterable  $values
+     * @param  \WPWhales\Contracts\Support\Arrayable|iterable  $values
      * @param  bool  $strict
      * @return static
      */
@@ -620,7 +620,7 @@ trait EnumeratesValues
      * Filter items by the given key value pair using strict comparison.
      *
      * @param  string  $key
-     * @param  \Illuminate\Contracts\Support\Arrayable|iterable  $values
+     * @param  \WPWhales\Contracts\Support\Arrayable|iterable  $values
      * @return static
      */
     public function whereInStrict($key, $values)
@@ -632,7 +632,7 @@ trait EnumeratesValues
      * Filter items such that the value of the given key is between the given values.
      *
      * @param  string  $key
-     * @param  \Illuminate\Contracts\Support\Arrayable|iterable  $values
+     * @param  \WPWhales\Contracts\Support\Arrayable|iterable  $values
      * @return static
      */
     public function whereBetween($key, $values)
@@ -644,7 +644,7 @@ trait EnumeratesValues
      * Filter items such that the value of the given key is not between the given values.
      *
      * @param  string  $key
-     * @param  \Illuminate\Contracts\Support\Arrayable|iterable  $values
+     * @param  \WPWhales\Contracts\Support\Arrayable|iterable  $values
      * @return static
      */
     public function whereNotBetween($key, $values)
@@ -658,7 +658,7 @@ trait EnumeratesValues
      * Filter items by the given key value pair.
      *
      * @param  string  $key
-     * @param  \Illuminate\Contracts\Support\Arrayable|iterable  $values
+     * @param  \WPWhales\Contracts\Support\Arrayable|iterable  $values
      * @param  bool  $strict
      * @return static
      */
@@ -673,7 +673,7 @@ trait EnumeratesValues
      * Filter items by the given key value pair using strict comparison.
      *
      * @param  string  $key
-     * @param  \Illuminate\Contracts\Support\Arrayable|iterable  $values
+     * @param  \WPWhales\Contracts\Support\Arrayable|iterable  $values
      * @return static
      */
     public function whereNotInStrict($key, $values)
@@ -875,7 +875,7 @@ trait EnumeratesValues
     /**
      * Collect the values into a collection.
      *
-     * @return \Illuminate\Support\Collection<TKey, TValue>
+     * @return \WPWhales\Support\Collection<TKey, TValue>
      */
     public function collect()
     {

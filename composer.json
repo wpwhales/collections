@@ -1,5 +1,5 @@
 {
-    "name": "illuminate/collections",
+    "name": "wpwhales/collections",
     "description": "The Illuminate Collections package.",
     "license": "MIT",
     "homepage": "https://laravel.com",
@@ -15,13 +15,13 @@
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/conditionable": "^11.0",
-        "illuminate/contracts": "^11.0",
-        "illuminate/macroable": "^11.0"
+        "wpwhales/conditionable": "dev-master",
+        "wpwhales/contracts": "dev-master",
+        "wpwhales/macroable": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "Illuminate\\Support\\": ""
+            "WPWhales\\Support\\": ""
         },
         "files": [
             "helpers.php"

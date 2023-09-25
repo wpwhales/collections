@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
+use WPWhales\Support\Arr;
+use WPWhales\Support\Collection;
 
 if (! function_exists('collect')) {
     /**
@@ -10,8 +10,8 @@ if (! function_exists('collect')) {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>|null  $value
-     * @return \Illuminate\Support\Collection<TKey, TValue>
+     * @param  \WPWhales\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue>|null  $value
+     * @return \WPWhales\Support\Collection<TKey, TValue>
      */
     function collect($value = [])
     {

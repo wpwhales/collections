@@ -1,10 +1,10 @@
 <?php
 
-namespace Illuminate\Support;
+namespace WPWhales\Support;
 
 use ArgumentCountError;
 use ArrayAccess;
-use Illuminate\Support\Traits\Macroable;
+use WPWhales\Support\Traits\Macroable;
 use InvalidArgumentException;
 
 class Arr
